@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Tweaks – Ultimate Game Optimizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            background: #0a0a1a;
+            color: #e0e0ff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6A0DAD, #00FFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+        .btn {
+            background: linear-gradient(135deg, #6A0DAD, #00FFFF);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 0 60px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #00FFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #aaa;
+        }
+        .hero .btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6A0DAD, #00FFFF);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #00FFFF;
+            box-shadow: 0 10px 30px rgba(0,255,255,0.1);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #00FFFF;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: rgba(0,0,0,0.3);
+        }
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid rgba(0,255,255,0.3);
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #00FFFF;
+        }
+        .price small {
+            font-size: 1rem;
+            color: #aaa;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        .pricing-card li {
+            margin: 0.8rem 0;
+        }
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+        }
+        .faq-question {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #ccc;
+            padding-top: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(0,255,255,0.2);
+            margin-top: 2rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links a {
+                margin: 0 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="nav">
+            <div class="logo">VORTEX TWEAKS</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#support">Support</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="hero">
+        <div class="container">
+            <h1>Tame the Chaos. Unleash the FPS.</h1>
+            <p>Vortex Tweaks is the ultimate Windows optimizer for gamers. Boost FPS, reduce input lag, and dominate every game with zero‑delay performance.</p>
+            <a href="#pricing" class="btn">Get Started →</a>
+        </div>
+    </div>
+
+    <div id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Game‑Changing Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>One‑Click Game Boost</h3>
+                    <p>Instantly apply performance power plans, disable background services, and unlock your system's full potential.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Game‑Specific Profiles</h3>
+                    <p>Optimized settings for Fortnite, Valorant, Apex, CoD, and more. Get the edge with pro‑level configurations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Ping Reducer</h3>
+                    <p>Advanced network tweaks for Fortnite East and other regions – lower ping, less jitter, stable connections.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Input & Latency Tweaks</h3>
+                    <p>Disable mouse acceleration, optimize keyboard repeat rates, and enable zero‑delay mode for ultra‑responsive controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Memory Cleaner</h3>
+                    <p>Free up RAM, remove junk files, and keep your system lean with one click.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe & Reversible</h3>
+                    <p>All changes are backed up. Restore your original settings instantly with the built‑in restore function.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-card">
+                <h3>Lifetime License</h3>
+                <div class="price">$14.99 <small>one‑time</small></div>
+                <ul>
+                    <li>✅ Full Vortex Tweaks executable</li>
+                    <li>✅ All features: Game Boost, Profiles, Ping Reducer</li>
+                    <li>✅ Input & Latency Tweaks</li>
+                    <li>✅ Lifetime updates & support</li>
+                    <li>✅ Access to private Discord server</li>
+                </ul>
+                <a href="https://yourstore.com/vortex" class="btn" target="_blank">Buy Now →</a>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">Secure checkout via Gumroad / PayPal</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">❓ Is Vortex Tweaks safe? <span>▼</span></div>
+                <div class="faq-answer">Yes! All tweaks are standard Windows settings. The tool includes a backup/restore feature, so you can revert any changes instantly.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Will it work on Windows 11? <span>▼</span></div>
+                <div class="faq-answer">Absolutely. Vortex Tweaks is fully compatible with Windows 10 and Windows 11 (both 64‑bit).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Do I need to be an administrator to run it? <span>▼</span></div>
+                <div class="faq-answer">Yes, some tweaks require administrator rights. The tool will automatically prompt for elevation.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ What games does it support? <span>▼</span></div>
+                <div class="faq-answer">Fortnite, Valorant, Apex Legends, Call of Duty, and any game that benefits from low‑latency system tweaks.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ How do I get support? <span>▼</span></div>
+                <div class="faq-answer">Join our Discord server (link after purchase) or email support@vortextweaks.com.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="support" style="padding: 40px 0; text-align: center;">
+        <div class="container">
+            <h2>Need Help?</h2>
+            <p>Join our community or contact us directly.</p>
+            <a href="https://discord.gg/your-invite" class="btn" style="margin-top: 1rem;">Join Discord →</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Vortex Tweaks. All rights reserved. | Designed for peak performance.</p>
+        <p style="font-size: 0.8rem;">Disclaimer: Use at your own risk. The author assumes no liability for any damage.</p>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
